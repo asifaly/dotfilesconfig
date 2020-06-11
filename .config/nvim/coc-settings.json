@@ -1,0 +1,19 @@
+{
+  "suggest.echodocSupport": true,
+  "suggest.maxCompleteItemCount": 20,
+  "vetur.validation.template": false,
+  "vetur.format.defaultFormatter.html": "none",
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "json", "scss", "vue"],
+  "eslint.enable": true,
+  "eslint.autoFix": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.options": {
+    "extensions":[".html", ".js", ".vue", ".jsx"]
+  },
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "•",
+  "prettier.disableLanguages": [
+  ]
+}
+
