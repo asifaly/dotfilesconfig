@@ -1,0 +1,53 @@
+{
+    "editor.fontLigatures": true,
+    "editor.cursorWidth": 3,
+    "editor.fontSize": 17,
+    "editor.fontWeight": "400",
+    "workbench.activityBar.visible": true,
+    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": true,
+    "editor.lineHeight": 25,
+    "terminal.integrated.fontSize": 16,
+    "editor.renderControlCharacters": false,
+    "window.restoreWindows": "one",
+    "window.zoomLevel": 0,
+    "editor.suggestSelection": "first",
+    "workbench.sideBar.location": "left",
+    "explorer.confirmDelete": false,
+    "workbench.iconTheme": "vscode-icons",
+    "eslint.enable": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.options": {
+        "extensions": [
+            ".html",
+            ".js",
+            ".vue",
+            ".jsx"
+        ]
+    },
+    "eslint.validate": [
+        "html",
+        "vue",
+        "javascript",
+        "javascriptreact",
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "files.trimTrailingWhitespace": true,
+    "vetur.validation.template": false,
+    "vetur.format.defaultFormatter.html": "none",
+    "javascript.format.enable": false,
+    "editor.formatOnSave": false,
+    "emmet.includeLanguages": {
+        "vue": "html"
+    },
+    "editor.tabCompletion": "onlySnippets",
+    "vetur.completion.scaffoldSnippetSources": {
+        "workspace": "",
+        "vetur": "",
+        "user": ""
+    },
+    "workbench.colorTheme": "Dracula",
+    "editor.fontFamily": "FiraCode-Retina, Menlo, Monaco, 'Courier New', monospace",
+}
