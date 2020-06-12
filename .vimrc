@@ -7,13 +7,13 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'mhartington/oceanic-next'
-Plug 'sheerun/vim-polyglot'
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-Plug 'posva/vim-vue'
+"Plug 'sheerun/vim-polyglot'
+"Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+"Plug 'posva/vim-vue'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'preservim/nerdcommenter'
-Plug 'mhinz/vim-startify'
+"Plug 'preservim/nerdcommenter'
+"Plug 'mhinz/vim-startify'
 
 call plug#end()
 
