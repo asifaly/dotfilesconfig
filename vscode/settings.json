@@ -42,12 +42,12 @@
     "emmet.includeLanguages": {
         "vue": "html"
     },
-    "editor.tabCompletion": "onlySnippets",
+    "editor.tabCompletion": "on",
     "vetur.completion.scaffoldSnippetSources": {
         "workspace": "",
         "vetur": "",
         "user": ""
     },
-    "workbench.colorTheme": "Nord",
+    "workbench.colorTheme": "Dracula",
     "editor.fontFamily": "FiraCode-Retina, Menlo, Monaco, 'Courier New', monospace",
 }

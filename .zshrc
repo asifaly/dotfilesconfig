@@ -134,9 +134,13 @@ alias mxa="tmux -2 a -t"
 alias mxconf="v ~/.tmux.conf"
 alias mxsrc="tmux source ~/.tmux.conf"
 alias kbssh="ssh -t root@68.183.80.200"
+alias szrc="source ~/.zshrc"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 . /usr/local/etc/profile.d/z.sh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
