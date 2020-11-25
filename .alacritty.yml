@@ -4,12 +4,13 @@ window:
     columns: 170
     lines: 48
   padding:
-    x: 5
-    y: 5
+    x: 8
+    y: 8
   decorations: none
 scrolling:
   history: 10000
   multiplier: 3
+background_opacity: 0.95
 
 # Font configuration
 font:
@@ -24,8 +25,8 @@ font:
     style: Light
   size: 16.0
   offset:
-    x: 1
-    y: 1
+    x: 0
+    y: 0
   use_thin_strokes: false
 
 # Colors (Dracula)

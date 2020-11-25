@@ -2,9 +2,10 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 #export PATH=$HOME/.daml/bin:$PATH
 #fpath=(~/.daml/zsh $fpath)
+#zmodload zsh/zprof
 KEYTIMEOUT=1
 autoload -U promptinit; promptinit
-prompt pure
+prompt purer
 
 # Example aliases
 alias ~="cd ~"
@@ -42,9 +43,16 @@ alias mxsrc="tmux source ~/.tmux.conf"
 alias kbssh="ssh -t root@68.183.80.200"
 alias szrc="source ~/.zshrc"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Add default node to path
+export PATH=~/.nvm/versions/node/v12.18.0/bin:$PATH
+
+# Load NVM
+export NVM_DIR=~/.nvm
+[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" --no-use
+
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
@@ -56,6 +64,7 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_COMMAND='rg --files --follow --glob "!.git/*"'
+export FZF_CTRL_T_COMMAND='rg --files --follow --glob "!.git/*"'
 
 # fd() {
 #   local dir
@@ -67,3 +76,4 @@ export FZF_DEFAULT_COMMAND='rg --files --follow --glob "!.git/*"'
 # fh() {
 #   eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
 # }
+#zprof
