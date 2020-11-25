@@ -7,13 +7,14 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'mhartington/oceanic-next'
-"Plug 'sheerun/vim-polyglot'
-"Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-"Plug 'posva/vim-vue'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'posva/vim-vue'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 "Plug 'preservim/nerdcommenter'
-"Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 
@@ -21,7 +22,7 @@ filetype plugin indent on
 
 syntax on
 set termguicolors
-colorscheme OceanicNext
+colorscheme dracula
 set background=dark
 set nolazyredraw
 set number
@@ -52,6 +53,7 @@ set tabstop=2
 set expandtab
 set nowrap
 set listchars=tab:\ \ ,trail:·
+set timeoutlen=1000 ttimeoutlen=10
 
 " Turn Off Swap Files
 set noswapfile
@@ -144,3 +146,5 @@ autocmd BufWritePre   *.vue call CocAction('format')
 nnoremap <C-p> :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
+
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)

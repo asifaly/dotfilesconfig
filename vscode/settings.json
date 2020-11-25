@@ -48,6 +48,7 @@
         "vetur": "",
         "user": ""
     },
-    "workbench.colorTheme": "Dracula",
     "editor.fontFamily": "FiraCode-Retina, Menlo, Monaco, 'Courier New', monospace",
+    "workbench.colorTheme": "Dracula",
+    "terminal.integrated.rendererType": "dom",
 }
