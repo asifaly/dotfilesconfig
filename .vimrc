@@ -143,8 +143,11 @@ let g:vue_pre_processors = 'detect_on_enter'
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 autocmd BufWritePre   *.vue call CocAction('format')
 
-nnoremap <C-p> :Files<CR>
+nnoremap <C-p> :FZF<CR>
+" nnoremap <C-p> :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
 
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+
+let g:startify_change_to_vcs_root=1

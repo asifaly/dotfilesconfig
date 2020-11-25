@@ -8,10 +8,11 @@ prompt pure
 
 # Example aliases
 alias ~="cd ~"
+alias alconf="nvim ~/.alacritty.yml"
 alias vim="nvim"
 alias v="vim"
-alias l="ls -lap"
-alias ls="ls -lap"
+alias l="ls -lapG"
+alias ls="ls -lapG"
 alias bu="brew upgrade && brew update && brew cleanup"
 alias gs="git status"
 alias gpa="git push -u origin all"
@@ -55,3 +56,14 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_COMMAND='rg --files --follow --glob "!.git/*"'
+
+# fd() {
+#   local dir
+#   dir=$(find ${1:-.} -path '*/\.*' -prune \
+#                   -o -type d -print 2> /dev/null | fzf +m) &&
+#   cd "$dir"
+# }
+
+# fh() {
+#   eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+# }
