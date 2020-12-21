@@ -12,7 +12,7 @@
     "window.restoreWindows": "one",
     "window.zoomLevel": 0,
     "editor.suggestSelection": "first",
-    "workbench.sideBar.location": "left",
+    "workbench.sideBar.location": "right",
     "explorer.confirmDelete": false,
     "workbench.iconTheme": "vscode-icons",
     "eslint.enable": true,
@@ -48,7 +48,9 @@
         "vetur": "",
         "user": ""
     },
-    "editor.fontFamily": "FiraCode-Retina, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "Victor Mono, Menlo, Monaco, 'Courier New', monospace",
     "workbench.colorTheme": "Dracula",
-    "terminal.integrated.rendererType": "dom",
+    "terminal.integrated.allowChords": false,
+    "terminal.integrated.drawBoldTextInBrightColors": false,
+    "terminal.integrated.experimentalLinkProvider": false,
 }

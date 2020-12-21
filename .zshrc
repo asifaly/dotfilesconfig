@@ -42,9 +42,11 @@ alias mxconf="v ~/.tmux.conf"
 alias mxsrc="tmux source ~/.tmux.conf"
 alias kbssh="ssh -t root@68.183.80.200"
 alias szrc="source ~/.zshrc"
+alias fireup="npm run emulate"
+alias pissh="ssh -t pi@192.168.0.10"
 
 # Add default node to path
-export PATH=~/.nvm/versions/node/v12.18.0/bin:$PATH
+export PATH=~/.nvm/versions/node/v14.15.1/bin:$PATH
 
 # Load NVM
 export NVM_DIR=~/.nvm
