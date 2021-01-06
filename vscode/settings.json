@@ -49,8 +49,11 @@
         "user": ""
     },
     "editor.fontFamily": "Victor Mono, Menlo, Monaco, 'Courier New', monospace",
-    "workbench.colorTheme": "Dracula",
-    "terminal.integrated.allowChords": false,
-    "terminal.integrated.drawBoldTextInBrightColors": false,
-    "terminal.integrated.experimentalLinkProvider": false,
+    "workbench.colorTheme": "Night Owl",
+    // "terminal.integrated.allowChords": false,
+    // "terminal.integrated.drawBoldTextInBrightColors": false,
+    // "terminal.integrated.experimentalLinkProvider": false,
+    "editor.accessibilitySupport": "off",
+    "terminal.integrated.cursorStyle": "underline",
+    "terminal.integrated.cursorWidth": 5,
 }

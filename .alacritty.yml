@@ -29,34 +29,68 @@ font:
     y: 0
   use_thin_strokes: true 
 
-# Colors (Dracula)
+# Colors (Night Owl)
 colors:
   # Default colors
   primary:
-    background: '#282a36'
-    foreground: '#f8f8f2'
+    background: '0x011627'
+    foreground: '0xd6deeb'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0xffffff'
+    cursor: '0x7e57c2'
 
   # Normal colors
   normal:
-    black:   '#000000'
-    red:     '#ff5555'
-    green:   '#50fa7b'
-    yellow:  '#f1fa8c'
-    blue:    '#caa9fa'
-    magenta: '#ff79c6'
-    cyan:    '#8be9fd'
-    white:   '#bfbfbf'
+    black:   '0x000000'
+    red:     '0xef5350'
+    green:   '0x22da6e'
+    yellow:  '0xaddb67'
+    blue:    '0x82aaff'
+    magenta: '0xc792ea'
+    cyan:    '0x21c7a8'
+    white:   '0xffffff'
 
   # Bright colors
   bright:
-    black:   '#575b70'
-    red:     '#ff6e67'
-    green:   '#5af78e'
-    yellow:  '#f4f99d'
-    blue:    '#caa9fa'
-    magenta: '#ff92d0'
-    cyan:    '#9aedfe'
-    white:   '#e6e6e6'
+    black:   '0x575656'
+    red:     '0xef5350'
+    green:   '0x22da6e'
+    yellow:  '0xffeb95'
+    blue:    '0x82aaff'
+    magenta: '0xc792ea'
+    cyan:    '0x7fdbca'
+    white:   '0xffffff'
+
+#Color(Dracula)
+#colors:
+#  # Default colors
+#  primary:
+#    background: '#282a36'
+#    foreground: '#f8f8f2'
+#
+#  # Normal colors
+#  normal:
+#    black:   '#000000'
+#    red:     '#ff5555'
+#    green:   '#50fa7b'
+#    yellow:  '#f1fa8c'
+#    blue:    '#caa9fa'
+#    magenta: '#ff79c6'
+#    cyan:    '#8be9fd'
+#    white:   '#bfbfbf'
+#
+#  # Bright colors
+#  bright:
+#    black:   '#575b70'
+#    red:     '#ff6e67'
+#    green:   '#5af78e'
+#    yellow:  '#f4f99d'
+#    blue:    '#caa9fa'
+#    magenta: '#ff92d0'
+#    cyan:    '#9aedfe'
+#    white:   '#e6e6e6'
 
 #Cursor
 cursor:

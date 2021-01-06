@@ -6,8 +6,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 " Plug 'tpope/vim-markdown', {'for': 'markdown'}
-"Plug 'mhartington/oceanic-next'
-Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'mhartington/oceanic-next'
+"Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'haishanh/night-owl.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'posva/vim-vue'
@@ -29,7 +30,8 @@ filetype plugin indent on
 
 syntax on
 set termguicolors
-colorscheme dracula
+"colorscheme dracula
+colorscheme night-owl
 set hidden
 set background=dark
 set nolazyredraw
@@ -271,6 +273,7 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 " map <silent> <leader>f :NERDTreeFind<cr>
 
 " airline configuration
+let g:airline_theme='night_owl'
 let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#left_sep = ' '
