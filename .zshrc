@@ -48,6 +48,7 @@ alias pissh="ssh -t pi@192.168.0.10"
 # Add default node to path
 export PATH=~/.nvm/versions/node/v14.15.1/bin:$PATH
 
+export EDITOR='nvim'
 # Load NVM
 export NVM_DIR=~/.nvm
 [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" --no-use
