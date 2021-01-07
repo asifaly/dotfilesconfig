@@ -6,8 +6,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 " Plug 'tpope/vim-markdown', {'for': 'markdown'}
-" Plug 'mhartington/oceanic-next'
-"Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'haishanh/night-owl.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
@@ -29,8 +27,7 @@ call plug#end()
 filetype plugin indent on
 
 syntax on
-set termguicolors
-"colorscheme dracula
+"set termguicolors
 colorscheme night-owl
 set hidden
 set background=dark
@@ -88,7 +85,7 @@ set wildignore=*.o,*.obj,*~
 set wildignore+=*vim/backups*
 
 " Give more space for displaying messages.
-set cmdheight=2
+"set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.

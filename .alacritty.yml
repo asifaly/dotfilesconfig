@@ -94,7 +94,7 @@ colors:
 
 #Cursor
 cursor:
-  style: Block
+  style: Underline
 
 # Shell
 #
