@@ -10,7 +10,7 @@
     "terminal.integrated.fontSize": 16,
     "editor.renderControlCharacters": false,
     "window.restoreWindows": "one",
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "editor.suggestSelection": "first",
     "workbench.sideBar.location": "right",
     "explorer.confirmDelete": false,

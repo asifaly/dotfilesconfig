@@ -1,7 +1,7 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-#export PATH=$HOME/.daml/bin:$PATH
-#fpath=(~/.daml/zsh $fpath)
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.daml/bin:$PATH
+fpath=(~/.daml/zsh $fpath)
 #zmodload zsh/zprof
 KEYTIMEOUT=1
 autoload -U promptinit; promptinit
@@ -46,7 +46,7 @@ alias fireup="npm run emulate"
 alias pissh="ssh -t pi@192.168.0.10"
 
 # Add default node to path
-export PATH=~/.nvm/versions/node/v14.15.1/bin:$PATH
+export PATH=~/.nvm/versions/node/v14.15.4/bin:$PATH
 
 export EDITOR='nvim'
 # Load NVM
