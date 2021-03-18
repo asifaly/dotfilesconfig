@@ -20,7 +20,7 @@ Plug 'godlygeek/tabular'
 " JSON front matter highlight plugin
 Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown'
-Plug 'tpope/vim-obsession'
+" Plug 'tpope/vim-obsession'
 
 call plug#end()
 
@@ -278,23 +278,23 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
 
 " open new split panes to right and below
-" set splitright
-" set splitbelow
+set splitright
+set splitbelow
 " turn terminal to normal mode with escape
-" if has("nvim")
-"   au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
-" au FileType fzf tunmap <buffer> <Esc>
-" endif
+if has("nvim")
+  au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+au FileType fzf tunmap <buffer> <Esc>
+endif
 " start terminal in insert mode
-" au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " open terminal on ctrl+n
-" function! OpenTerminal()
-"   split term://zsh
-"   set nonumber
-"   set norelativenumber
-" resize 10
-" endfunction
-" nnoremap <c-n> :call OpenTerminal()<CR>
+function! OpenTerminal()
+  split term://zsh
+  set nonumber
+  set norelativenumber
+resize 10
+endfunction
+nnoremap <c-n> :call OpenTerminal()<CR>
 
 let g:vue_pre_processors = ['scss']
 let g:vue_pre_processors = 'detect_on_enter'
