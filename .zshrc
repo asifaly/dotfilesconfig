@@ -80,3 +80,5 @@ export FZF_CTRL_T_COMMAND='rg --files --follow --glob "!.git/*"'
 #   eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
 # }
 #zprof
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
