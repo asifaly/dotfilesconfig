@@ -1,5 +1,10 @@
 [user]
-	email = asif@venzoconsulting.com
+	email = asifaly@gmail.com
 	name = Asif
 [core]
 	excludesfile = /Users/asif/.gitignore_global
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

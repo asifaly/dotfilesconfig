@@ -20,6 +20,8 @@ Plug 'godlygeek/tabular'
 " JSON front matter highlight plugin
 Plug 'elzr/vim-json'
 Plug 'plasticboy/vim-markdown'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
 " Plug 'tpope/vim-obsession'
 
 call plug#end()
@@ -335,3 +337,7 @@ let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1  " for YAML format
 let g:vim_markdown_toml_frontmatter = 1  " for TOML format
 let g:vim_markdown_json_frontmatter = 1  " for JSON format
+
+autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
+

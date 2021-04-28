@@ -56,4 +56,11 @@
     "terminal.integrated.cursorWidth": 5,
     "debug.console.fontSize": 16,
     "workbench.sideBar.location": "right",
+    "tabnine.experimentalAutoImports": true,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
 }
