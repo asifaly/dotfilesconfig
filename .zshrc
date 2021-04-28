@@ -44,6 +44,8 @@ alias kbssh="ssh -t root@68.183.80.200"
 alias szrc="source ~/.zshrc"
 alias fireup="npm run emulate"
 alias pissh="ssh -t pi@192.168.0.10"
+alias fs="foreman start"
+alias rc="rails c"
 
 # Add default node to path
 export PATH=~/.nvm/versions/node/v14.15.4/bin:$PATH
