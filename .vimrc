@@ -273,6 +273,7 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " airline configuration
 let g:airline_theme='night_owl'
+" let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#left_sep = ' '
@@ -340,4 +341,4 @@ let g:vim_markdown_json_frontmatter = 1  " for JSON format
 
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
-
+let g:coc_global_extensions = ['coc-solargraph', 'coc-pairs', 'coc-prettier', 'coc-highlight']
