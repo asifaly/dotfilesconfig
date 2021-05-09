@@ -7,13 +7,15 @@ KEYTIMEOUT=1
 autoload -U promptinit; promptinit
 prompt purer
 
-# Example aliases
+# Example aliase
+alias ..="cd .."
+alias vv="vim"
 alias ~="cd ~"
 alias alconf="nvim ~/.alacritty.yml"
-alias vim="nvim"
-alias v="vim"
+alias v="nvim"
 alias l="ls -lapG"
-alias ls="ls -lapG"
+alias ls="ls"
+alias la="ls -a"
 alias bu="brew upgrade && brew update && brew cleanup"
 alias gs="git status"
 alias gpa="git push -u origin --all"
@@ -27,9 +29,9 @@ alias gst="git stash"
 alias gstd="git stash drop"
 alias gstp="git stash pop"
 alias gcom="git commit -m"
-alias zrc="vim ~/.zshrc"
-alias zimrc="vim ~/.zimrc"
-alias vrc="vim ~/.vimrc"
+alias zrc="nvim ~/.zshrc"
+alias zimrc="nvim ~/.zimrc"
+alias vrc="nvim ~/.config/nvim/init.vim"
 alias ns="npm run serve"
 alias buildstage="npm run buildstage"
 alias buildprod="npm run buildprod"
@@ -82,5 +84,7 @@ export FZF_CTRL_T_COMMAND='rg --files --follow --glob "!.git/*"'
 #   eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
 # }
 #zprof
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"

@@ -1,0 +1,19 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "vue",
+    "javascript",
+    "json",
+    "ruby"
+  ],
+  "eslint.autoFixOnSave": true,
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "javascript": "javascriptreact"
+  },
+  "solargraph.diagnostics": true,
+  "solargraph.autoformat": true,
+  "solargraph.formatting": true,
+  "solargraph.hover": true
+}
