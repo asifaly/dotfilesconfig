@@ -5,24 +5,14 @@ call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-" Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'haishanh/night-owl.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-" Plug 'posva/vim-vue'
+Plug 'posva/vim-vue'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-"Plug 'preservim/nerdcommenter'
 Plug 'mhinz/vim-startify'
-" Plug 'mattn/emmet-vim'
-" tabular plugin is used to format tables
-" Plug 'godlygeek/tabular'
-" JSON front matter highlight plugin
-" Plug 'elzr/vim-json'
-" Plug 'plasticboy/vim-markdown'
-" Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
-" Plug 'tpope/vim-obsession'
 
 call plug#end()
 
