@@ -6,6 +6,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'haishanh/night-owl.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'posva/vim-vue'
@@ -13,6 +14,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-rails'
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
@@ -20,6 +22,7 @@ filetype plugin indent on
 
 syntax on
 colorscheme night-owl
+set cursorline
 set hidden
 set encoding=utf-8
 set nobackup
@@ -167,7 +170,7 @@ augroup end
 " nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
-nmap <leader>cc  <Plug>(coc-codeaction)
+nmap <leader>ct  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
 
@@ -231,12 +234,19 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
 " FZF
-nnoremap <C-p> :FZF<CR>
+nnoremap <C-p> :Files<CR>
 " nnoremap <C-p> :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
 
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+" command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --preview --ignore-case --follow --glob "!.git/*" --color "always".shellescape(<q-args>), fzf#vim#with_preview(), <bang>0)
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
 
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '~/.pyenv/shims/python'
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
