@@ -1,11 +1,12 @@
 # If you come from bash you might have to change your $PATH.
+eval "$(starship init zsh)"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.daml/bin:$PATH
 fpath=(~/.daml/zsh $fpath)
 #zmodload zsh/zprof
 KEYTIMEOUT=1
-autoload -U promptinit; promptinit
-prompt purer
+# autoload -U promptinit; promptinit
+# prompt purer
 
 # General Aliases
 alias ..="cd .."
@@ -101,4 +102,5 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
 

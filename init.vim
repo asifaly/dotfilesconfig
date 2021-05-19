@@ -6,7 +6,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'haishanh/night-owl.vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'posva/vim-vue'
@@ -235,7 +234,6 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " FZF
 nnoremap <C-p> :Files<CR>
-" nnoremap <C-p> :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
 
