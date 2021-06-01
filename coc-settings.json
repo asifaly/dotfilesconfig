@@ -12,8 +12,12 @@
     "vue-html": "html",
     "javascript": "javascriptreact"
   },
+  "diagnostic.checkCurrentLine": true,
   "solargraph.diagnostics": true,
   "solargraph.autoformat": true,
   "solargraph.formatting": true,
-  "solargraph.hover": true
+  "solargraph.hover": true,
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": ""
 }

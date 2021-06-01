@@ -14,6 +14,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-commentary'
+Plug 'gruvbox-community/gruvbox'
 
 call plug#end()
 
@@ -21,6 +22,7 @@ filetype plugin indent on
 
 syntax on
 colorscheme night-owl
+" colorscheme gruvbox
 set cursorline
 set hidden
 set encoding=utf-8
@@ -44,44 +46,16 @@ set softtabstop=2
 set tabstop=2
 set updatetime=300
 if has("termguicolors")     " set true colors
-	set t_8f=\[[38;2;%lu;%lu;%lum
-	set t_8b=\[[48;2;%lu;%lu;%lum
-	set termguicolors
+  set t_8f=\[[38;2;%lu;%lu;%lum
+  set t_8b=\[[48;2;%lu;%lu;%lum
+  set termguicolors
 endif
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
-
-" KeyMappings
 let mapleader=","
-nmap <silent> <Leader>a :bprev!<Return>
-nmap <silent> <Leader>s :bnext!<Return>
-nmap <silent> <Leader>d :bd!<Return>
-nmap <silent> <Leader>c :noh<Return>
-nmap <silent> <Leader>wq :wq!<Return>
-nmap <silent> <Leader>q :q!<Return>
-nmap <silent> <Leader>w :w<Return>
-nmap <silent> <Leader>b gg=G<Return>
-nmap <silent> <Leader>qa :qa!<Return>
-nmap <silent> <Leader>Q :q!<Return>
-nmap <silent> <Leader>q :q!<Return>
-nmap <silent> <Leader>r :source ~/.config/nvim/init.vim<Return>
-
-" Movement between splits
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" Resize Splits
-nnoremap <Leader><Up> :resize +2<Return>
-nnoremap <Leader><Down> :resize -2<Return>
-nnoremap <Leader><Left> :vertical resize +2<Return>
-nnoremap <Leader><Right> :vertical resize -2<Return>
 
 " Airline configuration
 let g:airline_theme='night_owl'
-" let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
@@ -91,9 +65,6 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:startify_change_to_vcs_root=1
 let g:startify_custom_header = 'startify#pad(startify#fortune#boxed())'
 
-" Move Lines Up/Down in Visual Mode
-xnoremap K :move '<-2<Return>gv-gv
-xnoremap J :move '>+1<Return>gv-gv
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -119,7 +90,7 @@ endif
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -152,8 +123,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -217,7 +188,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Show all diagnostics.
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+noremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
@@ -233,18 +204,64 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
 " FZF
-nnoremap <C-p> :Files<CR>
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+      \   fzf#vim#with_preview(), <bang>0)
+
+
+" FZF Keybindings
+nnoremap <C-p> :GFiles<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
-
-" command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --preview --ignore-case --follow --glob "!.git/*" --color "always".shellescape(<q-args>), fzf#vim#with_preview(), <bang>0)
-
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview(), <bang>0)
+nnoremap <Leader>l :Rg<CR>
+nnoremap <Leader>gc :Commits<CR>
+nnoremap <Leader>gs :GFiles?<CR>
+nnoremap <Leader>m :Maps<CR>
 
 
+" My Keybindings
+nmap <silent> <Leader>a :bprev!<Return>
+nmap <silent> <Leader>s :bnext!<Return>
+nmap <silent> <Leader>d :bd!<Return>
+nmap <silent> <Leader>c :noh<Return>
+nmap <silent> <Leader>wq :wq!<Return>
+nmap <silent> <Leader>q :q!<Return>
+nmap <silent> <Leader>w :w<Return>
+nmap <silent> <Leader>i gg=G<Return>
+nmap <silent> <Leader>qa :qa!<Return>
+nmap <silent> <Leader>Q :q!<Return>
+nmap <silent> <Leader>q :q!<Return>
+nmap <silent> <Leader>sr :source ~/.config/nvim/init.vim<Return>
+
+" Movement between splits
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
+
+" Move Lines Up/Down in Visual Mode
+xnoremap K :move '<-2<Return>gv-gv
+xnoremap J :move '>+1<Return>gv-gv
+
+" Resize Splits
+nnoremap <Leader><Up> :resize +2<Return>
+nnoremap <Leader><Down> :resize -2<Return>
+nnoremap <Leader><Left> :vertical resize +2<Return>
+nnoremap <Leader><Right> :vertical resize -2<Return>
+
+" Rails.vim key bindings
+nnoremap <Leader>em :Emodel<CR>
+nnoremap <Leader>ec :Econtroller<CR>
+nnoremap <Leader>ei :Eview index<CR>
+nnoremap <Leader>es :Eview show<CR>
+nnoremap <Leader>en :Eview new<CR>
+nnoremap <Leader>ee :Eview edit<CR>
+nnoremap <Leader>ef :Eview _form<CR>
+
+
+" For Neovim Health
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '~/.pyenv/shims/python'
-let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+

@@ -1,12 +1,18 @@
 # If you come from bash you might have to change your $PATH.
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.daml/bin:$PATH
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH="$PATH:$HOME/flutter/flutter/bin"
 fpath=(~/.daml/zsh $fpath)
 #zmodload zsh/zprof
 KEYTIMEOUT=1
-# autoload -U promptinit; promptinit
-# prompt purer
+autoload -U promptinit; promptinit
+prompt purer
 
 # General Aliases
 alias ..="cd .."
@@ -85,7 +91,11 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_COMMAND='rg --files --follow --glob "!.git/*"'
-export FZF_CTRL_T_COMMAND='rg --files --follow --glob "!.git/*"'
+export FZF_CTRL_T_COMMAND='rg'
+# if type rg &> /dev/null; then
+#   export FZF_DEFAULT_COMMAND='rg --files'
+#   export FZF_DEFAULT_OPTS='-m --height 50% --border'
+# fi
 
 # fd() {
 #   local dir
@@ -100,6 +110,7 @@ export FZF_CTRL_T_COMMAND='rg --files --follow --glob "!.git/*"'
 #zprof
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
