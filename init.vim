@@ -13,8 +13,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-rails'
-Plug 'tpope/vim-commentary'
 Plug 'gruvbox-community/gruvbox'
+Plug 'tomtom/tcomment_vim'
 
 call plug#end()
 
@@ -212,7 +212,7 @@ command! -bang -nargs=* Rg
 
 
 " FZF Keybindings
-nnoremap <C-p> :GFiles<CR>
+nnoremap <C-p> :Files<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
 nnoremap <Leader>l :Rg<CR>
