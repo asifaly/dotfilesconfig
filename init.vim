@@ -10,7 +10,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'posva/vim-vue'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-rails'
-Plug 'tpope/vim-commentary'
+Plug 'ap/vim-css-color'
+Plug 'tomtom/tcomment_vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
@@ -27,7 +28,7 @@ call plug#end()
 filetype plugin indent on
 
 syntax on
-colorscheme night-owl
+colorscheme night-owl 
 set cursorline
 set hidden
 set encoding=utf-8
@@ -107,6 +108,9 @@ nnoremap <Leader>ef :Eview _form<CR>
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '~/.pyenv/shims/python'
 
+"Vim Vue
+let g:vue_pre_processors = ['scss']
+
 lua << EOF
 local nvim_lsp = require('lspconfig')
 
@@ -115,6 +119,13 @@ local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+    if client.resolved_capabilities.document_formatting then
+    vim.api.nvim_command [[augroup Format]]
+    vim.api.nvim_command [[autocmd! * <buffer>]]
+    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+    vim.api.nvim_command [[augroup END]]
+  end
 
   --Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -143,15 +154,24 @@ local on_attach = function(client, bufnr)
 
 end
 
+
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 
+local function setup_servers()
+  require'lspinstall'.setup() -- important
 
-require'lspinstall'.setup() -- important
+  local servers = require'lspinstall'.installed_servers()
+  for _, server in pairs(servers) do
+    require'lspconfig'[server].setup{}
+  end
+end
 
-local servers = require'lspinstall'.installed_servers()
-for _, server in pairs(servers) do
-  require'lspconfig'[server].setup{}
+setup_servers()
+
+require'lspinstall'.post_install_hook = function () 
+  setup_servers()
+  vim.cmd("bufdo e")
 end
 
 vim.o.completeopt = "menuone,noselect"
@@ -181,6 +201,65 @@ require'compe'.setup {
   };
 }
 
+nvim_lsp.diagnosticls.setup {
+  on_attach = on_attach,
+  filetypes = { 'javascript', 'vue', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'markdown', 'pandoc' },
+  init_options = {
+    linters = {
+      eslint = {
+        command = 'eslint_d',
+        rootPatterns = { '.git' },
+        debounce = 100,
+        args = { '--stdin', '--stdin-filename', '%filepath', '--format', 'json' },
+        sourceName = 'eslint_d',
+        parseJson = {
+          errorsRoot = '[0].messages',
+          line = 'line',
+          column = 'column',
+          endLine = 'endLine',
+          endColumn = 'endColumn',
+          message = '[eslint] ${message} [${ruleId}]',
+          security = 'severity'
+        },
+        securities = {
+          [2] = 'error',
+          [1] = 'warning'
+        }
+      },
+    },
+    filetypes = {
+      javascript = 'eslint',
+      javascriptreact = 'eslint',
+      typescript = 'eslint',
+      typescriptreact = 'eslint',
+      vue = 'eslint'
+    },
+    formatters = {
+      eslint_d = {
+        command = 'eslint_d',
+        args = { '--stdin', '--stdin-filename', '%filename', '--fix-to-stdout' },
+        rootPatterns = { '.git' },
+      },
+      prettier = {
+        command = 'prettier',
+        args = { '--stdin-filepath', '%filename' }
+      }
+    },
+    formatFiletypes = {
+      css = 'prettier',
+      javascript = 'eslint_d',
+      javascriptreact = 'eslint_d',
+      json = 'prettier',
+      scss = 'prettier',
+      less = 'prettier',
+      typescript = 'eslint_d',
+      typescriptreact = 'eslint_d',
+      json = 'prettier',
+      markdown = 'prettier',
+      vue = 'eslint_d'
+    }
+  }
+}
 
 EOF
 
@@ -192,3 +271,5 @@ nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 " nnoremap <silent> ff    <cmd>lua vim.lsp.buf.formatting()<CR>
 autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
+
+
