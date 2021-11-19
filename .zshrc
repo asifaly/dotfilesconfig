@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # eval "$(starship init zsh)"
+. "$HOME/.cargo/env"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.daml/bin:$PATH
 export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -8,6 +9,7 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH="$PATH:$HOME/flutter/flutter/bin"
+export PATH="/Users/asif/.local/share/solana/install/active_release/bin:$PATH"
 fpath=(~/.daml/zsh $fpath)
 #zmodload zsh/zprof
 KEYTIMEOUT=1
@@ -15,6 +17,10 @@ autoload -U promptinit; promptinit
 prompt purer
 
 # General Aliases
+alias doup="docker-compose up"
+alias dodown="docker-compose down -v"
+alias dobuild="docker-compose build"
+alias dorestart="docker-compose down -v && docker-compose build && docker-compose up"
 alias ..="cd .."
 alias vv="vim"
 alias ~="cd ~"
