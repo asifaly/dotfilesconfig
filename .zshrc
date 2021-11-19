@@ -1,25 +1,25 @@
 # If you come from bash you might have to change your $PATH.
 # eval "$(starship init zsh)"
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/.daml/bin:$PATH
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH="$PATH:$HOME/flutter/flutter/bin"
-fpath=(~/.daml/zsh $fpath)
+#export PATH=$HOME/bin:/usr/local/bin:$PATH
+#export PATH=$HOME/.daml/bin:$PATH
+#export ANDROID_HOME=$HOME/Library/Android/sdk
+#export PATH=$PATH:$ANDROID_HOME/emulator
+#export PATH=$PATH:$ANDROID_HOME/tools
+#export PATH=$PATH:$ANDROID_HOME/tools/bin
+#export PATH=$PATH:$ANDROID_HOME/platform-tools
+#export PATH="$PATH:$HOME/flutter/flutter/bin"
+#fpath=(~/.daml/zsh $fpath)
 #zmodload zsh/zprof
-KEYTIMEOUT=1
-autoload -U promptinit; promptinit
-prompt purer
+#KEYTIMEOUT=1
+#autoload -U promptinit; promptinit
+#prompt purer
 
 # General Aliases
 alias ..="cd .."
-alias vv="vim"
+alias v="vim"
 alias ~="cd ~"
-alias alconf="nvim ~/.alacritty.yml"
-alias v="nvim"
+alias alconf="vim ~/.alacritty.yml"
+alias vv="nvim"
 alias l="ls -lapG"
 alias ls="ls"
 alias la="ls -a"
@@ -70,9 +70,9 @@ alias ns="npm run serve"
 alias buildstage="npm run buildstage"
 alias buildprod="npm run buildprod"
 # Add default node to path
-export PATH=~/.nvm/versions/node/v14.15.4/bin:$PATH
+#export PATH=~/.nvm/versions/node/v14.15.4/bin:$PATH
 
-export EDITOR='nvim'
+export EDITOR='vim'
 # Load NVM
 export NVM_DIR=~/.nvm
 [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" --no-use
@@ -81,17 +81,17 @@ export NVM_DIR=~/.nvm
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+#export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+#[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 
-eval "$(rbenv init -)"
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-. /usr/local/etc/profile.d/z.sh
+#eval "$(rbenv init -)"
+#export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+#. /usr/local/etc/profile.d/z.sh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export FZF_DEFAULT_COMMAND='rg --files --follow --glob "!.git/*"'
-export FZF_CTRL_T_COMMAND='rg'
+#export FZF_DEFAULT_COMMAND='rg --files --follow --glob "!.git/*"'
+#export FZF_CTRL_T_COMMAND='rg'
 # if type rg &> /dev/null; then
 #   export FZF_DEFAULT_COMMAND='rg --files'
 #   export FZF_DEFAULT_OPTS='-m --height 50% --border'
@@ -108,10 +108,10 @@ export FZF_CTRL_T_COMMAND='rg'
 #   eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
 # }
 #zprof
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+#export PYENV_ROOT="$HOME/.pyenv"
+#export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init --path)"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
 
 
