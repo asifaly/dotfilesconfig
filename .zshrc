@@ -1,6 +1,11 @@
 # If you come from bash you might have to change your $PATH.
 eval "$(starship init zsh)"
 
+# Docker Aliases
+alias doup="docker-compose up"
+alias dodown="docker-compose down"
+alias dorestart="docker-compose down --volumes && docker build && docker-compose up"
+
 # General Aliases
 alias ..="cd .."
 alias v="vim"
@@ -29,7 +34,7 @@ alias ga="git add ."
 alias gst="git stash"
 alias gstd="git stash drop"
 alias gstp="git stash pop"
-alias commit="git commit -m"
+alias gcm="git commit -m"
 
 # TMUX aliases
 alias mxn="tmux -2 new -s"
@@ -64,3 +69,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
