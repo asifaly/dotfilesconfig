@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 eval "$(starship init zsh)"
+. /opt/homebrew/etc/profile.d/z.sh
 
 # Docker Aliases
 alias doup="docker-compose up"
@@ -70,3 +71,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
