@@ -16,12 +16,19 @@ alias vv="nvim"
 alias l="ls -lapG"
 alias ls="ls"
 alias la="ls -a"
-alias bu="brew upgrade && brew update && brew cleanup"
 alias zrc="vim ~/.zshrc"
 alias vrc="vim ~/.config/nvim/init.vim"
 alias c="clear"
 alias kbssh="ssh -t root@68.183.80.200"
 alias szrc="source ~/.zshrc"
+
+#Brew Aliases
+alias bu="brew upgrade && brew update && brew cleanup"
+alias bl="brew ls"
+alias bi="brew install"
+alias bic="brew install --cask"
+alias br="brew uninstall"
+alias brc="brew uninstall --cask"
 
 # Git Aliases
 alias gs="git status"
