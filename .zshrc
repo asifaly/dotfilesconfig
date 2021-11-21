@@ -1,5 +1,8 @@
 # If you come from bash you might have to change your $PATH.
+#Loads the Starship Prompt
 eval "$(starship init zsh)"
+
+#Loads z for jumping between folders
 . /opt/homebrew/etc/profile.d/z.sh
 
 # Docker Aliases
@@ -44,7 +47,7 @@ alias gstd="git stash drop"
 alias gstp="git stash pop"
 alias gcm="git commit -m"
 
-# TMUX aliases
+# TMUX aliases - Delete it if you don't use tmux.
 alias mxn="tmux -2 new -s"
 alias mxk="tmux kill-session -t"
 alias mxl="tmux ls"
@@ -52,7 +55,7 @@ alias mxa="tmux -2 a -t"
 alias mxconf="v ~/.tmux.conf"
 alias mxsrc="tmux source ~/.tmux.conf"
 
-# Rails Aliases
+# Rails Aliases - Delete if you don't use Rails
 #alias fs="foreman start"
 #alias rc="rails c"
 #alias bi="bundle install"
@@ -73,9 +76,11 @@ alias buildprod="npm run buildprod"
 
 export EDITOR='vim'
 
+# Load NVM into shell
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+# Load Zsh Plugins
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
