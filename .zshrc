@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 #Loads the Starship Prompt
+fpath=(~/.daml/zsh $fpath)
 eval "$(starship init zsh)"
 
 #Loads z for jumping between folders
@@ -8,7 +9,7 @@ eval "$(starship init zsh)"
 # Docker Aliases
 alias doup="docker-compose up"
 alias dodown="docker-compose down"
-alias dorestart="docker-compose down --volumes && docker build && docker-compose up"
+alias dorestart="docker-compose down --volumes && docker build . && docker-compose up"
 
 # General Aliases
 alias ..="cd .."
