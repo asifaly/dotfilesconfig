@@ -85,3 +85,5 @@ export NVM_DIR="$HOME/.nvm"
 # Load Zsh Plugins
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
