@@ -13,15 +13,16 @@ alias dorestart="docker-compose down --volumes && docker build . && docker-compo
 
 # General Aliases
 alias ..="cd .."
-alias v="vim"
+alias v="nvim"
 alias ~="cd ~"
-alias alconf="vim ~/.alacritty.yml"
-alias vv="nvim"
+alias alconf="nvim ~/.alacritty.yml"
+alias vv="vim"
 alias l="ls -lapG"
 alias ls="ls"
 alias la="ls -a"
-alias zrc="vim ~/.zshrc"
-alias vrc="vim ~/.config/nvim/init.vim"
+alias zrc="nvim ~/.zshrc"
+alias vrc="nvim ~/.vimrc"
+alias nrc="nvim ~/.config/nvim/init.vim"  
 alias c="clear"
 alias kbssh="ssh -t root@68.183.80.200"
 alias szrc="source ~/.zshrc"
@@ -56,26 +57,12 @@ alias mxa="tmux -2 a -t"
 alias mxconf="v ~/.tmux.conf"
 alias mxsrc="tmux source ~/.tmux.conf"
 
-# Rails Aliases - Delete if you don't use Rails
-#alias fs="foreman start"
-#alias rc="rails c"
-#alias bi="bundle install"
-#alias rdbm="rails db:migrate"
-#alias rdbs="rails db:setup"
-#alias rdbr="rails db:rollback"
-#alias rgs="rails g scaffold"
-#alias rds="rails d scaffold"
-#alias rgm="rails g model"
-#alias rdm="rails d model"
-#alias rgc="rails g controller"
-#alias rdc="rails d controller" 
-
 # Node Aliases
 alias ns="npm run serve"
 alias buildstage="npm run buildstage"
 alias buildprod="npm run buildprod"
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Load NVM into shell
 export NVM_DIR="$HOME/.nvm"
