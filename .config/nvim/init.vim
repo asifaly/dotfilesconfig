@@ -2,32 +2,27 @@ set nocompatible
 
 call plug#begin()
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
-Plug 'haishanh/night-owl.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sheerun/vim-polyglot'
 Plug 'posva/vim-vue'
 Plug 'mhinz/vim-startify'
-Plug 'tpope/vim-rails'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'ap/vim-css-color'
-Plug 'tomtom/tcomment_vim'
-Plug 'gruvbox-community/gruvbox'
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
-" dependencies
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-" telescope
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'ms-jpq/coq_nvim'
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 
 call plug#end()
 
 filetype plugin indent on
 
 syntax on
-colorscheme night-owl 
+colorscheme dracula 
 set cursorline
 set hidden
 set encoding=utf-8
@@ -58,14 +53,6 @@ if has("termguicolors")     " set true colors
 endif
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 let mapleader=","
-
-" Airline configuration
-let g:airline_theme='night_owl'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'default'
-let g:airline#extensions#tabline#fnamemod = ':t'
 
 " Startify
 let g:startify_change_to_vcs_root=1
@@ -114,6 +101,37 @@ nnoremap <silent> ff    <cmd>lua vim.lsp.buf.formatting()<CR>
 autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
 
 lua << EOF
+require'gitsigns'.setup()
+
+require'lualine'.setup {
+  options = {
+    icons_enabled = true,
+    theme = 'dracula',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {},
+    always_divide_middle = true,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff',
+                  {'diagnostics', sources={'nvim_lsp', 'coc'}}},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
+}
 
 local lsp_installer = require("nvim-lsp-installer")
 local coq = require("coq")

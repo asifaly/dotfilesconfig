@@ -13,13 +13,15 @@ alias dorestart="docker-compose down --volumes && docker build . && docker-compo
 
 # General Aliases
 alias ..="cd .."
+alias ~=" cd ~"
 alias v="nvim"
 alias ~="cd ~"
 alias alconf="nvim ~/.alacritty.yml"
 alias vv="vim"
-alias l="ls -lapG"
-alias ls="ls"
-alias la="ls -a"
+alias l="colorls -la --sd"
+alias ld="colorls -d --sd"
+alias lf="colorls -f --sd"
+alias la="colorls -lA --sd"
 alias zrc="nvim ~/.zshrc"
 alias vrc="nvim ~/.vimrc"
 alias nrc="nvim ~/.config/nvim/init.vim"  
