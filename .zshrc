@@ -5,6 +5,7 @@ eval "$(starship init zsh)"
 
 #Loads z for jumping between folders
 . /opt/homebrew/etc/profile.d/z.sh
+bindkey -v
 
 # Docker Aliases
 alias doup="docker-compose up"
@@ -76,3 +77,5 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+eval "$(rbenv init - zsh)"
