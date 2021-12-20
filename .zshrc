@@ -13,6 +13,7 @@ alias dodown="docker-compose down"
 alias dorestart="docker-compose down --volumes && docker build . && docker-compose up"
 
 # General Aliases
+alias lg="lazygit"
 alias ..="cd .."
 alias ~=" cd ~"
 alias v="nvim"
@@ -65,6 +66,15 @@ alias ns="npm run serve"
 alias buildstage="npm run buildstage"
 alias buildprod="npm run buildprod"
 
+#Rails aliases
+alias rs="bin/rails server"
+alias rdbm="bin/rails db:migrate"
+alias rgmg="bin/rails g migration"
+alias rgmo="bin/rails g model"
+alias rgco="bin/rails g controller"
+alias rc="bin/rails console"
+alias rreset="bin/rails db:drop && bin/rails db:create && bin/rails db:migrate"
+
 export EDITOR='nvim'
 
 # Load NVM into shell
@@ -75,6 +85,7 @@ export NVM_DIR="$HOME/.nvm"
 # Load Zsh Plugins
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
