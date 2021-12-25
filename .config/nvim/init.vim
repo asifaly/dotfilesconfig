@@ -2,6 +2,8 @@ set nocompatible
 
 call plug#begin()
 
+"Plug 'glepnir/dashboard-nvim'
+Plug 'tpope/vim-rails'
 Plug 'sheerun/vim-polyglot'
 Plug 'mhinz/vim-startify'
 Plug 'lewis6991/gitsigns.nvim'
@@ -16,8 +18,12 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'haishanh/night-owl.vim'
 Plug 'creativenull/diagnosticls-configs-nvim'
-Plug 'folke/which-key.nvim'
+"Plug 'folke/which-key.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'tpope/vim-commentary'
+Plug 'suy/vim-context-commentstring'
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
@@ -68,12 +74,12 @@ set termguicolors
 set textwidth=80
 set colorcolumn=+1
 set colorcolumn=120
-highlight ColorColumn guibg=#333333
+highlight ColorColumn ctermbg=0 guibg=#273033
 
 highlight Comment cterm=italic
 highlight Cursor guifg=#f00 guibg=#657b83
 
-let mapleader=","
+let mapleader="\<space>"
 
 " Startify
 let g:startify_change_to_vcs_root=1
@@ -120,17 +126,23 @@ let g:python3_host_prog = '/usr/bin/python3'
 "
 "nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy({}))<cr>
 nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fc <cmd>lua require('telescope.builtin').file_browser({cwd = vim.fn.expand('%:p:h')})<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fr <cmd>lua require('telescope.builtin').registers()<cr>
+nnoremap <leader>fz <cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>
+nnoremap <leader>fk <cmd>lua require('telescope.builtin').keymaps()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>ft <cmd>lua require('telescope.builtin').tags()<cr>
+nnoremap <leader>fs <cmd>lua require('telescope.builtin').colorscheme()<cr>
 "nnoremap <leader>fr <cmd>lua require'telescope'.extensions.repo.list{}<cr>
 nnoremap <leader>gl <cmd>lua require('telescope.builtin').git_commits()<cr>
 nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <leader>gs <cmd>lua require('telescope.builtin').git_status()<cr>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gh    <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gc   <cmd>:Telescope lsp_code_actions<CR>
+nnoremap <silent> ga   <cmd>:Telescope lsp_code_actions<CR>
 nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
@@ -139,7 +151,7 @@ nnoremap <silent><leader>fo <cmd>lua vim.lsp.buf.formatting()<CR>
 
 lua << EOF
 require'gitsigns'.setup()
-require("which-key").setup()
+--require("which-key").setup()
 --require'telescope'.load_extension'repo'
 require'colorizer'.setup()
 
@@ -155,7 +167,7 @@ require'lualine'.setup {
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff',
-                  {'diagnostics', sources={'nvim_diagnostic', 'coc'}}},
+                  {'diagnostics', sources={'nvim_diagnostic'}}},
     lualine_c = {'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
@@ -217,7 +229,7 @@ prettier.requiredFiles = {
     '.prettierrc.cjs',
     'prettier.config.js',
     'prettier.config.cjs',
-		'prettierrc.vue'
+    'prettierrc.vue'
   }
 dlsconfig.setup {
   ['javascript'] = {
@@ -238,11 +250,19 @@ dlsconfig.setup {
   ['html'] = {
     formatter = prettier
   },
---	['ruby'] = {
---		formatter = rubocop,
---		linter = rubocop
---	},
 }
+
+--require'nvim-treesitter.configs'.setup {
+-- ensure_installed = "maintained", 
+--  sync_install = false,
+--  highlight = {
+--    enable = true,
+--    additional_vim_regex_highlighting = false,
+--  },
+--  indent = {
+--    enable = true,
+--  },
+--}
 
 EOF
 

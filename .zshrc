@@ -24,6 +24,7 @@ alias l="colorls -la --sd"
 alias ld="colorls -d --sd"
 alias lf="colorls -f --sd"
 alias la="colorls -lA --sd"
+alias lt="colorls -lt --sd"
 alias zrc="nvim ~/.zshrc"
 alias vrc="nvim ~/.vimrc"
 alias nrc="nvim ~/.config/nvim/init.vim"  
@@ -73,7 +74,7 @@ alias rgmg="bin/rails g migration"
 alias rgmo="bin/rails g model"
 alias rgco="bin/rails g controller"
 alias rc="bin/rails console"
-alias rreset="bin/rails db:drop && bin/rails db:create && bin/rails db:migrate"
+alias rreset="bin/rails db:reset"
 
 export EDITOR='nvim'
 
