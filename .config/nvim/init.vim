@@ -2,7 +2,6 @@ set nocompatible
 
 call plug#begin()
 
-"Plug 'glepnir/dashboard-nvim'
 Plug 'tpope/vim-rails'
 Plug 'sheerun/vim-polyglot'
 Plug 'mhinz/vim-startify'
@@ -18,19 +17,19 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'haishanh/night-owl.vim'
 Plug 'creativenull/diagnosticls-configs-nvim'
-"Plug 'folke/which-key.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'tpope/vim-commentary'
 Plug 'suy/vim-context-commentstring'
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
 filetype plugin indent on
 
 syntax on
-colorscheme night-owl
+colorscheme dracula 
 set noerrorbells
 set nowrap
 set cursorline
@@ -124,7 +123,6 @@ let g:python3_host_prog = '/usr/bin/python3'
 
 " Using lua functions
 "
-"nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_ivy({}))<cr>
 nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fc <cmd>lua require('telescope.builtin').file_browser({cwd = vim.fn.expand('%:p:h')})<cr>
@@ -136,7 +134,6 @@ nnoremap <leader>fk <cmd>lua require('telescope.builtin').keymaps()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <leader>ft <cmd>lua require('telescope.builtin').tags()<cr>
 nnoremap <leader>fs <cmd>lua require('telescope.builtin').colorscheme()<cr>
-"nnoremap <leader>fr <cmd>lua require'telescope'.extensions.repo.list{}<cr>
 nnoremap <leader>gl <cmd>lua require('telescope.builtin').git_commits()<cr>
 nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <leader>gs <cmd>lua require('telescope.builtin').git_status()<cr>
@@ -151,16 +148,14 @@ nnoremap <silent><leader>fo <cmd>lua vim.lsp.buf.formatting()<CR>
 
 lua << EOF
 require'gitsigns'.setup()
---require("which-key").setup()
---require'telescope'.load_extension'repo'
 require'colorizer'.setup()
 
 require'lualine'.setup {
   options = {
     icons_enabled = true,
-    theme = 'nightfly',
+    theme = 'dracula',
     component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
     disabled_filetypes = {},
     always_divide_middle = true,
   },
@@ -252,17 +247,17 @@ dlsconfig.setup {
   },
 }
 
---require'nvim-treesitter.configs'.setup {
--- ensure_installed = "maintained", 
---  sync_install = false,
---  highlight = {
---    enable = true,
---    additional_vim_regex_highlighting = false,
---  },
---  indent = {
---    enable = true,
---  },
---}
+-- require'nvim-treesitter.configs'.setup {
+--  ensure_installed = "maintained", 
+--   sync_install = false,
+--   highlight = {
+--     enable = true,
+--     additional_vim_regex_highlighting = false,
+--   },
+--   indent = {
+--     enable = false,
+--   },
+-- }
 
 EOF
 
