@@ -2,8 +2,7 @@ set nocompatible
 
 call plug#begin()
 
-Plug 'tpope/vim-rails'
-Plug 'sheerun/vim-polyglot'
+"Plug 'tpope/vim-rails'
 Plug 'mhinz/vim-startify'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'neovim/nvim-lspconfig'
@@ -15,21 +14,25 @@ Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'haishanh/night-owl.vim'
-Plug 'creativenull/diagnosticls-configs-nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'tpope/vim-commentary'
-Plug 'suy/vim-context-commentstring'
-Plug 'dracula/vim', { 'as': 'dracula' }
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
+Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-ts-autotag'
+Plug 'sbdchd/neoformat'
+Plug 'Mofiqul/dracula.nvim'
+Plug 'bluz71/vim-nightfly-guicolors'
 
 call plug#end()
 
 filetype plugin indent on
 
 syntax on
-colorscheme dracula 
+set background=dark
+set termguicolors
+colorscheme nightfly 
 set noerrorbells
 set nowrap
 set cursorline
@@ -47,7 +50,6 @@ set lazyredraw
 set signcolumn=yes
 set list
 set timeoutlen=500
-"set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 set listchars=trail:~,extends:>,precedes:<,space:·
 set smartcase
 set incsearch
@@ -69,7 +71,6 @@ set showcmd
 set incsearch
 set scrolloff=2
 set showmatch
-set termguicolors
 set textwidth=80
 set colorcolumn=+1
 set colorcolumn=120
@@ -97,10 +98,10 @@ nmap <silent> <Leader>qa :qa!<Return>
 nmap <silent> <Leader>Q :q!<Return>
 nmap <silent> <Leader>q :q!<Return>
 nmap <silent> <Leader>u :source ~/.config/nvim/init.vim<Return>
-nmap <C-j> <C-W>j
-nmap <C-k> <C-W>k
-nmap <C-h> <C-W>h
-nmap <C-l> <C-W>l
+" nmap <C-j> <C-W>j
+" nmap <C-k> <C-W>k
+" nmap <C-h> <C-W>h
+" nmap <C-l> <C-W>l
 
 " Move Lines Up/Down in Visual Mode
 "xnoremap K :move '<-2<Return>gv-gv
@@ -117,12 +118,7 @@ nnoremap <Leader><Right> :vertical resize -2<Return>
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
 
-"Vim Vue
-"let g:vue_pre_processors = ['scss']
-
-
-" Using lua functions
-"
+" Telescope keybindings
 nnoremap <C-p> <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fc <cmd>lua require('telescope.builtin').file_browser({cwd = vim.fn.expand('%:p:h')})<cr>
@@ -137,23 +133,24 @@ nnoremap <leader>fs <cmd>lua require('telescope.builtin').colorscheme()<cr>
 nnoremap <leader>gl <cmd>lua require('telescope.builtin').git_commits()<cr>
 nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
 nnoremap <leader>gs <cmd>lua require('telescope.builtin').git_status()<cr>
-nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gh    <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> ga   <cmd>:Telescope lsp_code_actions<CR>
-nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> gR    <cmd>lua vim.lsp.buf.rename()<CR>
-nnoremap <silent><leader>fo <cmd>lua vim.lsp.buf.formatting()<CR>
+
+" Neoformat - Format on Save
+
+let g:shfmt_opt="ci"
+augroup fmt
+  autocmd!
+  au BufWritePre * try | undojoin | Neoformat | catch /E790/ | Neoformat | endtry
+augroup END
 
 lua << EOF
 require'gitsigns'.setup()
 require'colorizer'.setup()
+require'nvim-autopairs'.setup{}
 
 require'lualine'.setup {
   options = {
     icons_enabled = true,
-    theme = 'dracula',
+    theme = 'nightfly',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {},
@@ -187,77 +184,67 @@ require'lualine'.setup {
   extensions = {}
 }
 
+
+local nvim_lsp = require('lspconfig')
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+  client.resolved_capabilities.document_formatting = true
+  -- Enable completion triggered by <c-x><c-o>
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
+
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_st_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', 'wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', 'wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', 'wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  buf_set_keymap('n', 'DD', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', 'rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', 'ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', 'ee', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', 'qo', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+  buf_set_keymap('n', 'fm','<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
+end
+
 local lsp_installer = require("nvim-lsp-installer")
 local coq = require("coq")
---local saga = require("lspsaga")
-
 lsp_installer.on_server_ready(function(server)
     local opts = {}
     server:setup(coq.lsp_ensure_capabilities(opts))
     vim.cmd('COQnow -s')
 end)
-EOF
 
-lua << EOF
--- npm install -g diagnostic-languageserver eslint_d prettier_d_slim prettier
-local function on_attach(client)
-  print('Attached to ' .. client.name)
-end
-local dlsconfig = require 'diagnosticls-configs'
-dlsconfig.init {
-  default_config = false,
-  format = true,
-  on_attach = on_attach,
-}
-local eslint = require 'diagnosticls-configs.linters.eslint'
-local prettier = require 'diagnosticls-configs.formatters.prettier'
---local rubocop = require 'diagnosticls-configs.linters.rubocop'
-prettier.requiredFiles = {
-    '.prettierrc',
-    '.prettierrc.json',
-    '.prettierrc.toml',
-    '.prettierrc.json',
-    '.prettierrc.yml',
-    '.prettierrc.yaml',
-    '.prettierrc.json5',
-    '.prettierrc.js',
-    '.prettierrc.cjs',
-    'prettier.config.js',
-    'prettier.config.cjs',
-    'prettierrc.vue'
-  }
-dlsconfig.setup {
-  ['javascript'] = {
-    linter = eslint,
-    formatter = { prettier }
+require'nvim-treesitter.configs'.setup {
+ensure_installed = "maintained", 
+ sync_install = false,
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
   },
-  ['javascriptreact'] = {
-    linter = { eslint },
-    formatter = { prettier }
+  indent = {
+    enable = false,
   },
-  ['vue'] = {
-    linter = { eslint },
-    formatter = { prettier }
+  context_commentstring = {
+    enable = true
   },
-  ['css'] = {
-    formatter = prettier
-  },
-  ['html'] = {
-    formatter = prettier
+  autotag = {
+    enable = true
   },
 }
-
--- require'nvim-treesitter.configs'.setup {
---  ensure_installed = "maintained", 
---   sync_install = false,
---   highlight = {
---     enable = true,
---     additional_vim_regex_highlighting = false,
---   },
---   indent = {
---     enable = false,
---   },
--- }
 
 EOF
 

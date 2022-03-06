@@ -7,13 +7,16 @@ eval "$(starship init zsh)"
 . /opt/homebrew/etc/profile.d/z.sh
 bindkey -v
 
+#
+
+alias chromdev="open -a "Google Chrome" --args --auto-open-devtools-for-tabs"
 # Docker Aliases
 alias doup="docker-compose up"
 alias dodown="docker-compose down"
 alias dorestart="docker-compose down --volumes && docker build . && docker-compose up"
 
 # General Aliases
-alias lg="lazygit"
+alias lz="lazygit"
 alias ..="cd .."
 alias ~=" cd ~"
 alias v="nvim"
@@ -43,6 +46,7 @@ alias bi="brew install"
 alias bic="brew install --cask"
 alias br="brew uninstall"
 alias brc="brew uninstall --cask"
+alias bcu="brew list --cask | xargs brew upgrade"
 
 # Git Aliases
 alias gs="git status"
