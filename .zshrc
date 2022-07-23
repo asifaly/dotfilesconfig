@@ -9,7 +9,7 @@ bindkey -v
 
 #
 
-alias chromdev="open -a "Google Chrome" --args --auto-open-devtools-for-tabs"
+# alias chromdev="open -a "Google Chrome" --args --auto-open-devtools-for-tabs"
 # Docker Aliases
 alias doup="docker-compose up"
 alias dodown="docker-compose down"
@@ -76,13 +76,19 @@ alias buildstage="npm run buildstage"
 alias buildprod="npm run buildprod"
 
 #Rails aliases
-alias rs="bin/rails server"
-alias rdbm="bin/rails db:migrate"
-alias rgmg="bin/rails g migration"
-alias rgmo="bin/rails g model"
-alias rgco="bin/rails g controller"
-alias rc="bin/rails console"
-alias rreset="bin/rails db:reset"
+# alias rs="bin/rails server"
+# alias rdbm="bin/rails db:migrate"
+# alias rgmg="bin/rails g migration"
+# alias rgmo="bin/rails g model"
+# alias rgco="bin/rails g controller"
+# alias rc="bin/rails console"
+# alias rreset="bin/rails db:reset"
+
+#Rust aliases
+alias cb="cargo build"
+alias cr="cargo run"
+alias cn="cargo new"
+alias rdoc="rustup doc"
 
 export EDITOR='nvim'
 
@@ -94,8 +100,9 @@ export NVM_DIR="$HOME/.nvm"
 # Load Zsh Plugins
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+# source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-eval "$(rbenv init - zsh)"
+# export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+# eval "$(rbenv init - zsh)"
+# export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"

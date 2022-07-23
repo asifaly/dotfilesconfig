@@ -1,5 +1,4 @@
 {
-	"analytics-uuid": "9fc40a60-7bcb-4e4f-8bc6-0569e8d4b516",
 	"motd": {
 		"cloudBuildErrorAfter": 1594252800000,
 		"cloudBuildWarnAfter": 1590019200000,
@@ -8,8 +7,46 @@
 		"node8DeploysDisabledAfter": 1613390400000,
 		"node8RuntimeDisabledAfter": 1615809600000,
 		"node8WarnAfter": 1600128000000,
-		"fetched": 1641558420082
+		"fetched": 1658296324497
 	},
+	"activeProjects": {
+		"/Users/asif/dev/vue/VQuiz": "vquiz-dev",
+		"/Users/asif/dev/vue/qizto": "vquiz-dev"
+	},
+	"webconfig": {
+		"vquiz-dev": {
+			"projectId": "vquiz-dev",
+			"appId": "1:201819589775:web:92b7e63fe3fd012b1d74fa",
+			"databaseURL": "https://vquiz-dev.firebaseio.com",
+			"storageBucket": "vquiz-dev.appspot.com",
+			"locationId": "us-central",
+			"apiKey": "AIzaSyA977BIb0nPbCggwWn-05tIRGWZVrxTXko",
+			"authDomain": "vquiz-dev.firebaseapp.com",
+			"messagingSenderId": "201819589775",
+			"measurementId": "G-Z8Q507MN6T"
+		},
+		"qizto-prod": {
+			"projectId": "qizto-prod",
+			"appId": "1:555951779646:web:c16ccc480be8b8f350066f",
+			"storageBucket": "qizto-prod.appspot.com",
+			"locationId": "asia-south1",
+			"apiKey": "AIzaSyAlg4h40n-IY2K5R42v4iSdw6HFkeV7Ys0",
+			"authDomain": "qizto-prod.firebaseapp.com",
+			"messagingSenderId": "555951779646",
+			"measurementId": "G-QSZS56MXLQ"
+		}
+	},
+	"adminsdkconfig": {
+		"vquiz-dev": {
+			"projectId": "vquiz-dev",
+			"databaseURL": "https://vquiz-dev.firebaseio.com",
+			"storageBucket": "vquiz-dev.appspot.com",
+			"locationId": "us-central"
+		}
+	},
+	"additionalAccounts": [],
+	"activeAccounts": {},
+	"analytics-uuid": "f1da104d-1831-4f26-8ee3-03418899e3fb",
 	"usage": true,
 	"user": {
 		"iss": "accounts.google.com",
@@ -19,13 +56,13 @@
 		"hd": "venzoconsulting.com",
 		"email": "asif@venzoconsulting.com",
 		"email_verified": true,
-		"at_hash": "zOaZfru9TswtGOa7_j6vmQ",
-		"iat": 1641558429,
-		"exp": 1641562029
+		"at_hash": "XhygKFKlm3rbnFBwZ2Trxg",
+		"iat": 1654955202,
+		"exp": 1654958802
 	},
 	"tokens": {
-		"expires_at": 1641577714608,
-		"refresh_token": "1//0gEffvB-LJm-NCgYIARAAGBASNwF-L9Ir6cePVvJsDZ0paSlJgtZf6MCztQAciYCBl69tpnJqKH628WPQgTiDgmNV3f8C2qKUXLI",
+		"expires_at": 1658301328872,
+		"refresh_token": "1//0gS8-U1c4eXm4CgYIARAAGBASNwF-L9Irz219Cubcrx_u70qSQ5QiOisTGx05ANKPVUz3BJsdyaZuG5KUMOsv-vJI1buSPyORb4w",
 		"scopes": [
 			"email",
 			"https://www.googleapis.com/auth/cloud-platform",
@@ -33,10 +70,10 @@
 			"https://www.googleapis.com/auth/firebase",
 			"openid"
 		],
-		"access_token": "ya29.A0ARrdaM_-g_e0pZHChF_MNu9F_Z18p5uD6FElR7bccsYj_qyrpndTRdq57NtKyNKKz5Qss39-MSze_1uAln3GwOcfk0tqNa0FYBqSkVeberAWJZw81cGllUrGedmQb3yMqLpi6nGW-AELhXUySsGJF4b_uLHEzFCivbQIqg",
+		"access_token": "ya29.A0AVA9y1sZwg1beP64ZNPbgTYbamVtAzJD2maQh-IzCskDyONbR3A90mFbwna8W9uLEKSMLGBUtR1oo06-DJ13eOX5u9ITeTVUqEx9_-GiKgh6y02PXDO5D8z5_mmXw02tOsYpd2NzfskSeWccefkmVayHcADoxqYveip8zQMYUNnWUtBVEFTQVRBU0ZRRTY1ZHI4YnRGX0tkMlEtSFVLODRtZnpWU3VsUQ0174",
 		"expires_in": 3599,
-		"scope": "https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.email",
+		"scope": "openid https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase",
 		"token_type": "Bearer",
-		"id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImQwMWMxYWJlMjQ5MjY5ZjcyZWY3Y2EyNjEzYTg2YzlmMDVlNTk1NjciLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAxNDM1NTI3MjMyMDE2NTMxMzM1IiwiaGQiOiJ2ZW56b2NvbnN1bHRpbmcuY29tIiwiZW1haWwiOiJhc2lmQHZlbnpvY29uc3VsdGluZy5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6Il8zc1FnRVBWNUxGRnV4WTlLUmxrMHciLCJpYXQiOjE2NDE1NzQxMTUsImV4cCI6MTY0MTU3NzcxNX0.WUWypoOPT44KAEhNMSM63pMYTTOBS8GtWTuUOAsp_zvBGkFBad_vOKv957OggzrRPvr5QaSCYs1qI5_PomiuzxUmnYmjBqdXiHLoZMmZKeA8D-yNFw6CDy59IsQG3u0wrRzlhdFi09W_x3Fq8bhTAluEo0OdkuRJfZeMDemDHGijYMK8kXbGSgCqwQsK-V9pJqvw2lE2HVsvLvhxUsbrNnPxaiUwwXYFoKh2IwkATG6MWgojLcEe5EBPeqtUcK6ObKBTQdS__I7P-Q7LM2406WDhemV4NxZR47z6CyP-QldQoePW_MPsQ-JpTyrn-04iS_0nyopKTlANbFexv5cF_Q"
+		"id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjYzMWZhZTliNTk0MGEyZDFmYmZmYjAwNDAzZDRjZjgwYTIxYmUwNGUiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAxNDM1NTI3MjMyMDE2NTMxMzM1IiwiaGQiOiJ2ZW56b2NvbnN1bHRpbmcuY29tIiwiZW1haWwiOiJhc2lmQHZlbnpvY29uc3VsdGluZy5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6Ikx3OEc0V3NCUjhKNEc4MmhsVDd1SXciLCJpYXQiOjE2NTgyOTc3MjksImV4cCI6MTY1ODMwMTMyOX0.MqR_Ra1MgAHssDyo7AVYWWSOW0uUvTsTqz-DRpzS0MI_rhRs54EdufHmYZYHnyZxfwQV_mzUayJgeJAYyfmV0Y0RwruFOEmhSkD7EQUnAxfv8o_5UczumOap01LZKpF3Ws6MNR_6IvRm-Ur7FZWgX0zon6AvQCR5uOBLifuePwjxQNbDELofGeACI9frUPzOcphgfCdGWsS3sTRA63DUj0YpCC6JC91mvIA0oSOR_q2_1u9Jv4BW3mLfXuq1GK5z8bmdkDzPCzhSs8YawB8_Hs9IwDYJTGmukf9FPOaPyugDcam_NdY3GVHR3JL-jST1J1-EAK7BjxiJvuz3jB_KBQ"
 	}
 }

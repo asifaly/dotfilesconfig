@@ -24,6 +24,7 @@ Plug 'windwp/nvim-ts-autotag'
 Plug 'sbdchd/neoformat'
 Plug 'Mofiqul/dracula.nvim'
 Plug 'bluz71/vim-nightfly-guicolors'
+Plug 'akinsho/bufferline.nvim'
 
 call plug#end()
 
@@ -146,6 +147,8 @@ lua << EOF
 require'gitsigns'.setup()
 require'colorizer'.setup()
 require'nvim-autopairs'.setup{}
+vim.opt.termguicolors = true
+require("bufferline").setup{}
 
 require'lualine'.setup {
   options = {
@@ -223,13 +226,13 @@ end
 local lsp_installer = require("nvim-lsp-installer")
 local coq = require("coq")
 lsp_installer.on_server_ready(function(server)
-    local opts = {}
+    local opts = {"yaml", "vue", "vim", "typescript", "tsx", "svelte", "solidity", "scss", "ruby", "python", "lua", "json", "json5", "jsdoc", "javascript", "java", "html", "go", "dot", "dart", "bash", "rust"}
     server:setup(coq.lsp_ensure_capabilities(opts))
     vim.cmd('COQnow -s')
 end)
 
 require'nvim-treesitter.configs'.setup {
-ensure_installed = "maintained", 
+  ensure_installed = {}, 
  sync_install = false,
   highlight = {
     enable = true,
